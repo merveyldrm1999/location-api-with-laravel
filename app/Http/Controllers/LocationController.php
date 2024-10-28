@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LocationRequest;
 use App\Services\LocationService;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
@@ -34,9 +35,9 @@ class LocationController extends Controller
     }
 
 
-    public function show(string $id)
+    public function show(int $location): \Illuminate\Http\JsonResponse
     {
-        //
+        return $this->locationService->show($location);
     }
 
     public function edit(string $id)

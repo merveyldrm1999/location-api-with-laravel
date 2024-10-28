@@ -14,4 +14,11 @@ class LocationService
         $model->save();
         return response()->json($model, 201);
     }
+
+    public function show(int $location): \Illuminate\Http\JsonResponse
+    {
+        $model = Model::findOrFail($location);
+
+        return response()->json($model);
+    }
 }
