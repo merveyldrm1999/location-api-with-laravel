@@ -3,22 +3,16 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class LocationRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
 //        'regex:/^#?([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/', ifadesi hex rengi kontrol eder.
@@ -29,5 +23,25 @@ class LocationRequest extends FormRequest
             'longitude' => ['required', 'numeric'],
             'hex' => ['required', 'string', 'regex:/^#?([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$/'],
         ];
+    }
+
+
+    public function attributes(): array
+    {
+        return [
+            'name' => 'Name',
+            'latitude' => 'Latitude',
+            'longitude' => 'Longitude',
+            'hex' => 'Hex',
+        ];
+    }
+
+
+    //Hata mesajlarını json dönmedi araştırmalarımda bu fonksiyon sorunu çözüyordu.
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'errors' => $validator->errors(),
+        ], 422));
     }
 }

@@ -28,7 +28,7 @@ class LocationController extends Controller
     }
 
 
-    public function store(LocationRequest $request)
+    public function store(LocationRequest $request): array
     {
         return $request->all();
     }
