@@ -23,12 +23,6 @@ class LocationController extends Controller
     }
 
 
-    public function create()
-    {
-        //
-    }
-
-
     public function store(LocationRequest $request): \Illuminate\Http\JsonResponse
     {
         return $this->locationService->store($request->only(['name', 'latitude', 'longitude', 'hex']));
@@ -40,15 +34,10 @@ class LocationController extends Controller
         return $this->locationService->show($location);
     }
 
-    public function edit(string $id)
-    {
-        //
-    }
 
-
-    public function update(Request $request, string $id)
+    public function update(LocationRequest $request, int $id)
     {
-        //
+        return $request->all();
     }
 
 
