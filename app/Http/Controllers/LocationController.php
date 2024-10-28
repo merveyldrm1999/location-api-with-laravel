@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LocationRequest;
 use App\Services\LocationService;
 use Illuminate\Http\Request;
 
@@ -27,9 +28,9 @@ class LocationController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(LocationRequest $request)
     {
-        //
+        return $request->all();
     }
 
 
