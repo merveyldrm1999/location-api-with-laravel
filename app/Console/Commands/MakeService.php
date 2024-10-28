@@ -46,24 +46,11 @@ class MakeService extends Command
             return false;
         }
 
-        // Servis sınıfının içeriği
-        $serviceTemplate = <<<EOT
-        <?php
+        $serviceTemplate = File::get($stubPath);
 
-        namespace App\Services;
+        $serviceTemplate = str_replace('{{name}}', $name, $serviceTemplate);
 
-        class {$name}
-        {
-            public function __construct()
-            {
-                // Initialize service
-            }
-
-            // Your methods here
-        }
-        EOT;
         File::put($filePath, $serviceTemplate);
-
         $this->info('Service created successfully: ' . $filePath);
 
         return true;
