@@ -17,9 +17,9 @@ class LocationController extends Controller
     }
 
 
-    public function index()
+    public function index(): \Illuminate\Http\JsonResponse
     {
-
+        return $this->locationService->index();
     }
 
 
@@ -35,9 +35,9 @@ class LocationController extends Controller
     }
 
 
-    public function update(LocationRequest $request, int $id)
+    public function update(LocationRequest $request, int $id): \Illuminate\Http\JsonResponse
     {
-        return $request->all();
+        return $this->locationService->update($request->only(['name', 'latitude', 'longitude', 'hex']), $id);
     }
 
 

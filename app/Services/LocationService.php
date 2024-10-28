@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Location as Model;
+use http\Env\Response;
 
 class LocationService
 {
@@ -18,7 +19,6 @@ class LocationService
     public function show(int $location): \Illuminate\Http\JsonResponse
     {
         $model = Model::findOrFail($location);
-
         return response()->json($model);
     }
 
@@ -28,5 +28,10 @@ class LocationService
         $model->fill($only);
         $model->save();
         return response()->json($model);
+    }
+
+    public function index(): \Illuminate\Http\JsonResponse
+    {
+        return response()->json(Model::all());
     }
 }
