@@ -21,6 +21,10 @@ class DistanceService
             ];
         }
 
+        usort($distance, function ($a, $b) {
+            return $a['distance'] <=> $b['distance'];
+        });
+
         return response()->json($distance);
     }
 
