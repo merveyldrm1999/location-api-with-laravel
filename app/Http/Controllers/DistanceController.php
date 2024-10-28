@@ -15,7 +15,7 @@ class DistanceController extends Controller
         $this->distanceService = $distanceService;
     }
 
-    public function route(DistanceRequest $request)
+    public function route(DistanceRequest $request): \Illuminate\Http\JsonResponse
     {
         return $this->distanceService->route($request->only(['latitude', 'longitude']));
     }
