@@ -41,8 +41,13 @@ class LocationController extends Controller
     }
 
 
-    public function destroy(string $id)
+    public function destroy(int $id): \Illuminate\Http\JsonResponse
     {
-        //
+        return $this->locationService->destroy($id);
+    }
+
+    public function withDestroy(): \Illuminate\Http\JsonResponse
+    {
+        return $this->locationService->withDestroy();
     }
 }

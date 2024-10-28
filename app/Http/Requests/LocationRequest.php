@@ -26,7 +26,7 @@ class LocationRequest extends FormRequest
         //Eğer put veya delete metodu ise id kontrolü yapılacak.
         if ($this->isMethod('put')) {
             $rules = array_merge($rules, [
-                'location' => ['required', 'integer', 'exists:locations,id']
+                'location' => ['required', 'integer', 'exists:locations,id,deleted_at,NULL'],
             ]);
         }
 

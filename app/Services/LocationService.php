@@ -34,4 +34,16 @@ class LocationService
     {
         return response()->json(Model::all());
     }
+
+    public function destroy(int $location): \Illuminate\Http\JsonResponse
+    {
+        $model = Model::findOrFail($location);
+        $model->delete();
+        return response()->json(null, 204);
+    }
+
+    public function withDestroy(): \Illuminate\Http\JsonResponse
+    {
+        return response()->json(Model::withTrashed()->get());
+    }
 }
