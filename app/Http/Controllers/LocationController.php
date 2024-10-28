@@ -28,9 +28,9 @@ class LocationController extends Controller
     }
 
 
-    public function store(LocationRequest $request): array
+    public function store(LocationRequest $request): \Illuminate\Http\JsonResponse
     {
-        return $request->all();
+        return $this->locationService->store($request->only(['name', 'latitude', 'longitude', 'hex']));
     }
 
 
