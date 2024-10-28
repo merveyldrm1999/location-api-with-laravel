@@ -52,7 +52,7 @@ class MakeService extends Command
 
         namespace App\Services;
 
-        class {$name}Service
+        class {$name}
         {
             public function __construct()
             {
