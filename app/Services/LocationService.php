@@ -21,4 +21,12 @@ class LocationService
 
         return response()->json($model);
     }
+
+    public function update(array $only, int $location): \Illuminate\Http\JsonResponse
+    {
+        $model = Model::findOrFail($location);
+        $model->fill($only);
+        $model->save();
+        return response()->json($model);
+    }
 }
