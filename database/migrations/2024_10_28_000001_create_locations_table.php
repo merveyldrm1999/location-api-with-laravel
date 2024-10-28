@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->decimal('longitude', 9, 6);
             $table->string('hex');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
