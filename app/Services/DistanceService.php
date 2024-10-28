@@ -9,8 +9,23 @@ class DistanceService
     public function route(array $only)
     {
         $model = Model::all();
-        $distance = [];
+        $distance = $this->sortAndDistance($model, $only);
 
+        return response()->json($distance);
+    }
+
+    public function show(array $only, int $location)
+    {
+        //array olarak gelmesi için whereId kullandım.
+        $model = Model::whereId($location)->get();
+
+        $distance = $this->sortAndDistance($model, $only);
+
+        return response()->json($distance);
+    }
+
+    public function sortAndDistance($model, $only): array
+    {
         foreach ($model as $item) {
             $distance[] = [
                 'id' => $item->id,
@@ -25,9 +40,8 @@ class DistanceService
             return $a['distance'] <=> $b['distance'];
         });
 
-        return response()->json($distance);
+        return $distance;
     }
-
 
     public static function haversineDistance($lat1, $lon1, $lat2, $lon2, $earthRadius = 6371): float|int
     {
