@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "0d84b8e8-9b36-470f-956e-eab001e8c181",
+		"name": "Location",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23907181"
+	},
+	"item": [
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/locations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomFirstName}}",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "{{$randomLatitude}}",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "{{$randomLongitude}}",
+									"type": "text"
+								},
+								{
+									"key": "hex",
+									"value": "{{$randomHexColor}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/locations",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomFirstName}}",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "{{$randomLatitude}}",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "{{$randomLongitude}}",
+									"type": "text"
+								},
+								{
+									"key": "hex",
+									"value": "{{$randomHexColor}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/locations/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"locations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomFirstName}}",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "{{$randomLatitude}}",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "{{$randomLongitude}}",
+									"type": "text"
+								},
+								{
+									"key": "hex",
+									"value": "{{$randomHexColor}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/locations/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"locations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET DELETE ALL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "{{$randomFirstName}}",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "{{$randomLatitude}}",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "{{$randomLongitude}}",
+									"type": "text"
+								},
+								{
+									"key": "hex",
+									"value": "{{$randomHexColor}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/locations/with-destroy",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"locations",
+								"with-destroy"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Distance",
+			"item": [
+				{
+					"name": "GET ALL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "latitude",
+									"value": "{{$randomLatitude}}",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "{{$randomLongitude}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/locations/distance",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"locations",
+								"distance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ONE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "latitude",
+									"value": "{{$randomLatitude}}",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "{{$randomLongitude}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/locations/distance",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"locations",
+								"distance"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:8000/api",
+			"type": "string"
+		}
+	]
+}
