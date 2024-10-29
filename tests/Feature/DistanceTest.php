@@ -29,7 +29,7 @@ class DistanceTest extends TestCase
         ]);
 
 
-        $response = $this->postJson('/api/locations/route', [
+        $response = $this->postJson('/api/locations/distance', [
             'latitude' => $faker->latitude,
             'longitude' => $faker->longitude,
         ]);
