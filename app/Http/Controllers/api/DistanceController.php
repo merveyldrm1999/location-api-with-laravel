@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\DistanceRequest;
-use App\Services\DistanceService;
-use Illuminate\Http\Request;
+use App\Services\api\DistanceService;
 
 class DistanceController extends Controller
 {

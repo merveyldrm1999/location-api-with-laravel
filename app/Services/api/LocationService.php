@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\api;
 
 use App\Models\Location as Model;
-use http\Env\Response;
 
 class LocationService
 {

@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//1 dakika içinde 60 istekten fazla yapılmaması için throttle middleware kullanıldı.
+Route::middleware('throttle:60,1')->group(function () {
+
+    Route::get('/', [\App\Http\Controllers\web\LocationWebController::class, 'index']);
+
 });
