@@ -51,10 +51,13 @@ Sistemde kayıtlı olan konumların markerlarını gösteren bir haritanın aç�
 
 ![Resim Açıklaması](https://raw.githubusercontent.com/merveyldrm1999/location-api-with-laravel/refs/heads/main/list.png)
 
-
 ---
 
 ## API Kullanımı
+
+**Yanıt Kodları:**
+- `200`: Başarılı istek
+- `204`: Kayıtlı lokasyon yok
 
 ### GET /locations
 Sisteme kaydedilen tüm lokasyonların listelenmesini sağlar. Kayıtlı lokasyon yoksa yanıt boş bir array olacaktır.
