@@ -22,4 +22,8 @@ class Location extends Model
         'longitude' => 'float',
     ];
 
+
+
+
+
 }
