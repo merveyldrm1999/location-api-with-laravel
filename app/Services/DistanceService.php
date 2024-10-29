@@ -26,6 +26,10 @@ class DistanceService
 
     public function sortAndDistance($model, $only): array
     {
+        if ($model->isEmpty()) {
+            return [];
+        }
+
         foreach ($model as $item) {
             $distance[] = [
                 'id' => $item->id,
