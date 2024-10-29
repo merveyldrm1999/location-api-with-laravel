@@ -245,6 +245,9 @@ Gönderilen lokasyon'a göre yine id de gönderilen sistemde kayıtlı olan loka
 ```
 ## TEST Kullanımı
 
+### php artisan test
+komutu ile test çalıştırılabilir.
+
 ### LocationTest
 
 **it creates a location:** Bu test, yeni bir lokasyonun başarıyla oluşturulmasını doğrular.
@@ -279,9 +282,10 @@ Süre: 0.04s
 
 ### DistanceTest
 
-**it calculates distance between two locations** Bu test kaydedilen verilerin rastgele gönderilen kordinatlara göre sıralanma durumunu kontrol eder. küçükten büyüğe doğru bir sıralama geri dönerse çıktı başarılı olarak görünecektir.
+**it calculates distance between two locations** Bu test kaydedilen verilerin rastgele gönderilen kordinatlara göre sıralanma durumunu kontrol eder. küçükten büyüğe doğru bir sıralama geri dönerse çıktı başarılı olarak görünecektir
 
 Örnek test çıktısı
 Test Sonucu: Başarılı
 Süre: 0.04s
+
 ---
