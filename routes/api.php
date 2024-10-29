@@ -13,8 +13,8 @@ Route::middleware('throttle:60,1')->group(function () {
 
     Route::prefix('locations')->group(function () {
         Route::get('with-destroy', [\App\Http\Controllers\LocationController::class, 'withDestroy']);
-        Route::post('route', [\App\Http\Controllers\DistanceController::class, 'route']);
-        Route::post('route/{id}', [\App\Http\Controllers\DistanceController::class, 'show'])->where(['location' => '[0-9]+']);
+        Route::post('distance', [\App\Http\Controllers\DistanceController::class, 'route']);
+        Route::post('distance/{id}', [\App\Http\Controllers\DistanceController::class, 'show'])->where(['location' => '[0-9]+']);
     });
 
 });
