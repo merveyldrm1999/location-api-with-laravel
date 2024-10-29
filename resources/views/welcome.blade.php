@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         #map {
-            height: 500px;
+            height: 800px;
             width: 100%;
         }
     </style>
@@ -19,13 +19,14 @@
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-    const map = L.map('map').setView([37.7749, -122.4194], 12);
+    const locations = @json($model);
+
+    const map = L.map('map').setView([locations[0].latitude, locations[0].longitude], 5);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
     }).addTo(map);
 
-    const locations = @json($model);
 
     locations.forEach((location, index) => {
         const circleMarker = L.circleMarker([location.latitude, location.longitude], {
