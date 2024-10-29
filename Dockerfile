@@ -1,28 +1,31 @@
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
-WORKDIR /var/www
-
+# PHP uzantı bağımlılıklarını yükle
 RUN apt-get update && apt-get install -y \
+    libfreetype-dev \
+    libjpeg62-turbo-dev \
     libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
+    zlib1g-dev \
     libzip-dev \
     unzip \
-    git \
-    nginx \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd zip pdo pdo_mysql
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-install zip \
+    && docker-php-ext-install pdo pdo_mysql
 
-COPY . .
+# Çalışma dizinini ayarla
+COPY . /var/www/app
+WORKDIR /var/www/app
 
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN chown -R www-data:www-data /var/www/app \
+    && chmod -R 775 /var/www/app/storage
 
+# Composer'ı yükle
+COPY --from=composer:2.6.5 /usr/bin/composer /usr/local/bin/composer
+
+# composer.json'u çalışma dizinine kopyala ve bağımlılıkları yükle
+COPY composer.json ./
 RUN composer install
 
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start the PHP FastCGI Process Manager and Nginx
-CMD service nginx start && php-fpm
+# Varsayılan komut olarak php-fpm'i ayarla
+CMD ["sh", "-c", "php artisan migrate --seed --force && php-fpm"]
