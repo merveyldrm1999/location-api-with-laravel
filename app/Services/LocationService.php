@@ -44,6 +44,6 @@ class LocationService
 
     public function withDestroy(): \Illuminate\Http\JsonResponse
     {
-        return response()->json(Model::withTrashed()->get());
+        return response()->json(Model::onlyTrashed()->get());
     }
 }
