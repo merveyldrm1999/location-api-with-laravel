@@ -19,7 +19,8 @@ API isteklerini test etmek için [Postman koleksiyonunu indirin](Location.postma
   - [DELETE /locations/{id}](#delete-locationsid)
   - [GET /locations/with-destroy](#get-locationswith-destroy)
   - [POST /locations/distance](#post-locationsdistance)
-
+- [TEST Kullanımı](#test-kullanımı)
+  
 ---
 
 ## Kurulum DOCKER
@@ -37,7 +38,13 @@ API isteklerini test etmek için [Postman koleksiyonunu indirin](Location.postma
     cp .env.example .env
     ```
 
-3. Docker ile projeyi başlatın:
+3. Ortam değişkenlerinin içerisinden db şifrenizi belirleyin. **Projenin çalışması için zorunlu**
+
+    ```bash
+    DB_PASSWORD=.....
+    ```
+
+4. Docker ile projeyi başlatın:
 
     ```bash
     docker-compose up -d
@@ -236,5 +243,45 @@ Gönderilen lokasyon'a göre yine id de gönderilen sistemde kayıtlı olan loka
 ]
 
 ```
+## TEST Kullanımı
 
+### LocationTest
+
+**it creates a location:** Bu test, yeni bir lokasyonun başarıyla oluşturulmasını doğrular.
+Örnek test çıktısı
+Test Sonucu: Başarılı
+Süre: 2.22s
+
+**it lists locations:** Bu test listeleme işleminin başarılı olma durumunu kontrol eder.
+Örnek test çıktısı
+Test Sonucu: Başarılı
+Süre: 0.03s
+
+**it updates a location:** Bu test güncelleme durumunu kontrol eder. Faker kütüphanesi ile rasgele data güncellemesi yapar.
+Örnek test çıktısı
+Test Sonucu: Başarılı
+Süre: 0.05s
+
+**it deletes a location:** Bu test, belirtilen lokasyonun başarıyla silindiğini doğrular.
+Örnek test çıktısı
+Test Sonucu: Başarılı
+Süre: 0.60s
+
+**it shows a location:** Bu test, tek bir lokasyonun bilgilerini başarıyla getirdiğini kontrol eder.
+Örnek test çıktısı
+Test Sonucu: Başarılı
+Süre: 0.04s
+
+**it validates location with trash:** Bu test soft olarak silinen verilerin gerçekten silinme durumunun kontrolunu sağlar faker kütüphanesi ile data eklenir sonra silinir ve gelen veriler soft mu kontrol eder.
+Örnek test çıktısı
+Test Sonucu: Başarılı
+Süre: 0.04s
+
+### DistanceTest
+
+**it calculates distance between two locations** Bu test kaydedilen verilerin rastgele gönderilen kordinatlara göre sıralanma durumunu kontrol eder. küçükten büyüğe doğru bir sıralama geri dönerse çıktı başarılı olarak görünecektir.
+
+Örnek test çıktısı
+Test Sonucu: Başarılı
+Süre: 0.04s
 ---
